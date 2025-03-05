@@ -1,10 +1,10 @@
 ### **"Differential Amplifier"**
 
-A basic component of analog circuit architecture, a differential amplifier finds extensive use in data acquisition systems, noise reduction, and signal amplification.  It is perfect for high-precision circuits, such as operational amplifiers and analog front-end devices, because it rejects common-mode noise and magnifies the difference between two input signals.
+The output voltage of a differentiator amplifier, sometimes referred to as a differentiating amplifier or a differentiator circuit, is directly proportional to the time derivative of the input.  In other words, either the RC time constant or the time derivative can be used to adjust the output voltage.
+ What is the function of a differential amplifier?
+ The differential amplifier's job is to boost the heart signal's amplitude so that it may be transformed into a digital format.  By carefully choosing external resistors to connect between the input and output terminals, the circuit's gain can be changed.
 
- Differential amplifiers are essential components of contemporary electronics, particularly in sensor interfaces, biomedical instruments, and communication systems where signal integrity is vital.  In noisy conditions, they outperform single-ended amplifiers due to their capacity to suppress undesired signals and external interference.
- Vdd=2.5v, p<=3mw, Vicm=1.3v, Vocm=1.25v, Vp=0.5v, vocm=1.4v is the query. **
-
+### **question:Vdd=2.5v , p<=3mw , Vicm=1.3v, Vocm=1.25v , Vp=0.5v , vocm=1.4v**
 **Circuit 1** <br>
 ![Image](https://github.com/user-attachments/assets/4a8c18fd-31d4-42e2-84f7-ccaa40dd426d)
 
@@ -14,18 +14,18 @@ A basic component of analog circuit architecture, a differential amplifier finds
 
 
 
-from the calculation we have finded Iss value as 1mA <br>
-Id1 and Id2 as 0.5mA <br>
-Rd as 1.833kohm <br>
-Rss as 416.66ohm <br>
-Vgs=vg - vp = 1.3v - 0.5v = 0.8v <br>
-Vov = vgs - vth = 0.8v - 0.366v = 0.434v <br>
+Based on the computation, we have discovered  The Iss value is 1mA.
+ Id1 as well as Id2 as 0.5mA
+ Rd is equal to 1.833kohm.
+ 416.66 ohm for Rss
+ 1.3 - 0.5 - 0.8 v = vgs=vg - vp
+ The formula for Vov is vgs - vth = 0.8v - 0.366v = 0.434v.
 
-To set the operating point go to Configure Analysis and select Dc operating Point <br>
+ Go to Configure Analysis and choose Dc operating Point to specify the operating point.
 
-to set correct operating point vary width and length values 
-width =8.05u <br>
-length = 180n <br>
+ to establish the proper operating point  Change the width and length settings. 
+ length = 180n <br> width = 8.05u
+
 
 
 ![Screenshot 2025-03-04 183108](https://github.com/user-attachments/assets/29bcd7c2-01f8-4ccd-8868-6e676a54e5b3)
@@ -127,12 +127,13 @@ Replacing current Source with MOSFET
 
 
 ![Screenshot 2025-03-04 200424](https://github.com/user-attachments/assets/29db27ff-2882-4c49-bce8-ee48b11dc4e2)
-How to find Vb?
-Vb = vth + Vp <br>
-Vb = 0.366v + 0.5v <br>
-Vb = 0.866v <br>
-To set the operating point vary 3rd MOSFET width and keep length as same before 
-For approx operating Point i got width as 12.6u
+How can I locate Vb?
+ Vb = vth + Vp
+ Vb is equal to 0.366v + 0.5v.
+ Vb = 0.866v
+ Change the third MOSFET's width to determine the operating point while maintaining the same length. 
+ I obtained a width of 12.6u for the approximate operating point.
+
 
 # dc analysis:
 
@@ -153,10 +154,66 @@ For approx operating Point i got width as 12.6u
 
 
 
+![trans 1](https://github.com/user-attachments/assets/1258abba-908d-48dd-bfaa-5a02670745d1)
+
+BY changing amplitude from 20mv to 500mv
+input and output swing
 
 
 
 
+![amp 1](https://github.com/user-attachments/assets/2dc7b33f-2bec-4d5d-965d-d470cdeb7393)
 
+# AC ANALYSIS:
+
+
+
+![ac 1](https://github.com/user-attachments/assets/3f790afc-ef6f-4237-b407-fd6b32626083)
+
+
+# Inference:  
+This experiment investigated three different designs of differential amplifiers that have distinct effects on gain, bandwidth, and stability: resistor-based, current source-based, and NMOS-based.  
+
+ Resistor: low gain, low CMRR, high bandwidth.  
+ High gain, high CMRR, and somewhat reduced bandwidth are the current sources.  
+ - NMOS (CMOSN): Maximum profit.  
+
+  Ideal Setup Depending on Need:  
+ 1. Resistor → High bandwidth  
+ 2. NMOS (CMOSN) → maximum gain  
+ 3. Improved CMRR → NMOS or current source (CMOSN)
+
+
+
+
+## result:
+
+1. **Circuit-1:**  The circuit's proper behavior as a differential pair is confirmed by the transient response of **Circuit-1:**.  
+    -  A respectable gain and strong common-mode noise rejection are shown by the AC analysis.  
+    -  According to the DC analysis, when the input voltages are equivalent, the MOSFETs operate at saturation and have equal drain currents.  
+
+ 2. **Circuit-2:** - The signals have improved symmetry due to a more balanced transient response.  
+    -  According to the AC study, this circuit has a larger frequency range and a greater gain than  Circuit 1.  
+    The DC analysis shows that the biasing is more stable when a current source is used rather than a resistor.  
+
+
+ 3.  **Circuit-3:**-The transient response of circuit number three guarantees signal accuracy and enhances performance.  
+    A wider frequency range and even more gain are revealed by the AC study.  
+    -  The output changes as anticipated, according to the DC sweep analysis.  
+    The DC analysis verifies that the tail current is efficiently controlled by the MOSFET-based current source.
+
+
+
+
+### CIRCUIT 4:
+
+
+![Screenshot 2025-03-04 223152](https://github.com/user-attachments/assets/6646efcb-08b5-4458-892c-9e4e8676b95d)
+
+## DC ANALYSIS:
+
+
+
+![Screenshot 2025-03-04 224318](https://github.com/user-attachments/assets/5bd7277d-3990-48a5-8ac8-94ac43c8be45)
 
 
